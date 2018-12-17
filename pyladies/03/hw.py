@@ -1,14 +1,20 @@
-from turtle import left, right, forward, exitonclick
-from math import sqrt
+cislo = int(input('Zadej cislo poprve: '))
+pom = cislo
 
-n = int(input('zadej pocet hran n-uhelniku: '))
-strana = 100/n
+cislo = int(input('Zadej cislo podruhe: '))
+if cislo < pom:
+    pom = cislo
 
+cislo = int(input('Zadej cislo potreti: '))
+if cislo < pom:
+    pom = cislo
 
-for hrana in range(n):
-    forward(strana)
-    strana += strana
-    #left(180 - (180 * (1-2/n)))
-    left(90)
+cislo = int(input('Zadej cislo poctvrte: '))
+if cislo < pom:
+    pom = cislo
 
-exitonclick()
+cislo = int(input('Zadej cislo popate: '))
+if cislo < pom:
+    pom = cislo
+
+print('Nejmensi cislo ze zadanych je:', pom)
