@@ -61,7 +61,7 @@ def tah_pocitace(game):
                 control = control + 1
         
         else:
-            move = randrange[20]
+            move = randrange(20)
             return tah(game, move, 'o')
 
 def vytvor_plan():

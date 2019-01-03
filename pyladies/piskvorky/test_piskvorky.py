@@ -12,10 +12,8 @@ def test_tah_na_prazdne_pole():
     assert pole.count('-') == 19
 
 def test_tah_na_plne_pole():
-    pole = ai.tah_pocitace('xxxxxxxxxxxxxxxxxxxx')
-    assert len(pole) == 20
-    assert pole.count('o') == 1
-    assert pole.count('x') == 19
+	with pytest.raises(Exception):
+		pole = ai.tah_pocitace('xxxxxxxxxxxxxxxxxxxx')
 
 def test_null_pole():
     with pytest.raises(TypeError):
