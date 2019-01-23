@@ -6,21 +6,21 @@ import util
 
 # ai testy
 def test_ai_prazdne_pole():
-    pole = ai.tah_pocitace('--------------------')
+    pole = ai.tah_pocitace('--------------------', 'o')
     assert len(pole) == 20
     assert pole.count('o') == 1
     assert pole.count('-') == 19
 
 def test_ai_plne_pole():
     with pytest.raises(Exception):
-            pole = ai.tah_pocitace('xxxxxxxxxxxxxxxxxxxx')
+            pole = ai.tah_pocitace('xxxxxxxxxxxxxxxxxxxx', 'o')
 
 def test_ai_null_pole():
     with pytest.raises(TypeError):
-        pole = ai.tah_pocitace(None)
+        pole = ai.tah_pocitace(None, None)
 
-def test_ai_spatne_pole():
-    pole = ai.tah_pocitace('---------------------') # delka 21
+def test_ai_delsi_pole():
+    pole = ai.tah_pocitace('---------------------', 'o') # delka 21
     assert len(pole) == 21
     assert pole.count('o') == 1
     assert pole.count('-') == 20
