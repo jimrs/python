@@ -16,7 +16,7 @@ def piskvorky1d():
             print("Spatne zadana pozice!")
             move = input('Na jakou pozici chces umistit svuj symbol?: ')
         
-        move = int(move)
+        move = int(move)    # now we know it is a valid int so we can cast it
         game = util.tah(game, move, 'x')
         print(game)
         control = util.vyhodnot(game)
