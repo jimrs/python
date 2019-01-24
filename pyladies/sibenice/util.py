@@ -12,15 +12,23 @@ def createSecret(word):
     return secret
 
 def createWordList():
-    return ["jirka", "francie", "sunka"]
+    return ["kokot"]
 
 def guessInWord(word, guess):
     return guess in word
 
+def guessInSecret(secret, guess):
+    return guess in secret
+
 def updateSecret(word, secret, guess):
-    index = word.index(guess)
     secretAsList = list(secret)
-    secretAsList[index] = guess
+    index = 0
+
+    for char in word:
+        if char == guess and char not in secret:    # misto druhe podminky lze pouzit guessInSecret
+            secretAsList[index] = guess
+        index += 1
+
     return "".join(secretAsList)
 
 def printSecret(secret):

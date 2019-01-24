@@ -8,8 +8,13 @@ badGuessCount = 0
 while True:
     guess = input("INPUT GUESS: ")
 
-    if util.guessInWord(word, guess):
+    if util.guessInSecret(secret, guess):
+        badGuessCount += 1
+        print("GUESS ALREADY GUESSED.")
+
+    elif util.guessInWord(word, guess):
         secret = util.updateSecret(word, secret, guess)
+
     else:
         badGuessCount += 1
         print("GUESS BAD.")

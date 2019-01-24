@@ -3,7 +3,7 @@ import pytest
 import util
 
 def test_createWordList():
-    expected = ["jirka", "francie", "sunka"]
+    expected = ["kokot"]
     assert util.createWordList() == expected
 
 def test_pickWord():
@@ -21,11 +21,16 @@ def test_guessInWord():
     guess = "k"
     assert util.guessInWord(word, guess) == True
 
-def test_updateSecret():
-    word = "jirka"
+def test_guessInSecret():
+    secret = "ji-k-"
     guess = "k"
-    secret = "-----"
-    assert util.updateSecret(word, secret, guess) == "---k-"
+    assert util.guessInSecret(secret, guess) == True
+
+def test_updateSecret():
+    word = "cobolo"
+    guess = "o"
+    secret = "c---l-"
+    assert util.updateSecret(word, secret, guess) == "co-olo"
 
 def test_noHyphenInSecret():
     secret = "jirka"
