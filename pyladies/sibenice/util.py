@@ -52,3 +52,9 @@ def printGameStatus(badGuessCount):
     ]
 
     print(statusList[badGuessCount])
+
+def isGuessValid(guess):
+    if len(guess) > 1:
+        return False
+    else:
+        return guess.isalpha()

@@ -33,6 +33,17 @@ def test_updateSecret():
     assert util.updateSecret(word, secret, guess) == "co-olo"
 
 def test_noHyphenInSecret():
-    secret = "jirka"
-    assert util.noHyphenInSecret(secret) == True
+    secretBad = "jirka"
+    secretGood = "ji-ka"
+    assert util.noHyphenInSecret(secretBad) == True
+    assert util.noHyphenInSecret(secretGood) == False
 
+def test_isGuessValid():
+    guess1 = "1"
+    guess2 = "!"
+    guess3 = "abc"
+    guessGood = "a"
+    assert util.isGuessValid(guess1) == False 
+    assert util.isGuessValid(guess2) == False 
+    assert util.isGuessValid(guess3) == False 
+    assert util.isGuessValid(guessGood) == True

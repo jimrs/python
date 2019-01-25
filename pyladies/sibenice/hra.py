@@ -8,26 +8,29 @@ badGuessCount = 0
 while True:
     guess = input("INPUT GUESS: ")
 
-    if util.guessInSecret(secret, guess):
-        badGuessCount += 1
-        print("GUESS ALREADY GUESSED.")
+    if util.isGuessValid(guess):
+        if util.guessInSecret(secret, guess):
+            badGuessCount += 1
+            print("GUESS ALREADY GUESSED.")
 
-    elif util.guessInWord(word, guess):
-        secret = util.updateSecret(word, secret, guess)
+        elif util.guessInWord(word, guess):
+            secret = util.updateSecret(word, secret, guess)
 
-    else:
-        badGuessCount += 1
-        print("GUESS BAD.")
+        else:
+            badGuessCount += 1
+            print("GUESS BAD.")
 
-    util.printSecret(secret)
+        util.printSecret(secret)
 
-    if util.noHyphenInSecret(secret):
-        print("YOU HAVE WON.")
-        break
-    else:
-        util.printGameStatus(badGuessCount)
-        if badGuessCount >= 9:
-            print("GAME LOST.")
+        if util.noHyphenInSecret(secret):
+            print("YOU HAVE WON.")
             break
+        else:
+            util.printGameStatus(badGuessCount)
+            if badGuessCount >= 9:
+                print("GAME LOST.")
+                break
 
+    else:
+        print("INVALID GUESS. TRY AGAIN.")
 
