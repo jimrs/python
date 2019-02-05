@@ -1,5 +1,3 @@
-pets = ["pes", "kocka", "kralik", "had"]
-
 def stringShorterThanFive(listOfStrings):
     resultList = []
     
@@ -17,3 +15,9 @@ def stringBeginningWithK(listOfStrings):
             resultList.append(item)
 
     return resultList
+
+def isStringInList(string, listOfStrings):
+    if string in listOfStrings:
+        return True
+    else:
+        return False
