@@ -12,7 +12,7 @@ def createSecret(word):
     return secret
 
 def createWordList():
-    return ["kokot"]
+    return ["bankovka"]
 
 def guessInWord(word, guess):
     return guess in word
