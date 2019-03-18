@@ -26,18 +26,37 @@ def move(coords, direction):
 	if direction == 'n':
 		newCoord = (lastCoord[0], lastCoord[1] - 1)
 		coords.append(newCoord)
+		coords.pop(0)
 
 	elif direction == 's':
 		newCoord = (lastCoord[0], lastCoord[1] + 1)
 		coords.append(newCoord)
+		coords.pop(0)
 
 	elif direction == 'w':
 		newCoord = (lastCoord[0] - 1, lastCoord[1])
 		coords.append(newCoord)
+		coords.pop(0)
 
 	elif direction == 'e':
 		newCoord = (lastCoord[0] + 1, lastCoord[1])
 		coords.append(newCoord)
+		coords.pop(0)
 
 	else:
 		raise ValueError('The provided direction is not valid (n, s, w, e).')
+
+def game():
+	coords = [(0, 0), (1, 0), (2, 0)]
+	draw_field(coords)
+
+	while True:
+		userDirection = input("Enter your desired direction of travel (n, s, w, e), or enter q for quit: ")
+		
+		if userDirection != 'q':
+			move(coords, userDirection)
+			draw_field(coords)		
+		else:
+			break
+
+#game()
