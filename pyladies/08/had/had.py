@@ -25,26 +25,27 @@ def move(coords, direction):
 
 	if direction == 'n':
 		newCoord = (lastCoord[0], lastCoord[1] - 1)
-		coords.append(newCoord)
-		coords.pop(0)
 
 	elif direction == 's':
 		newCoord = (lastCoord[0], lastCoord[1] + 1)
-		coords.append(newCoord)
-		coords.pop(0)
 
 	elif direction == 'w':
-		newCoord = (lastCoord[0] - 1, lastCoord[1])
-		coords.append(newCoord)
-		coords.pop(0)
+		newCoord = (lastCoord[0] - 1, lastCoord[1])		
 
 	elif direction == 'e':
 		newCoord = (lastCoord[0] + 1, lastCoord[1])
-		coords.append(newCoord)
-		coords.pop(0)
 
 	else:
 		raise ValueError('The provided direction is not valid (n, s, w, e).')
+
+
+	if newCoord in coords:
+		raise ValueError('Game over. Stepped on your tail.')
+	elif newCoord[0] > 9 or newCoord[0] < 0 or newCoord[1] > 9 or newCoord[1] < 0:
+		raise ValueError('Game over. Stepped outside of bounds of the game field.') 
+	else:
+		coords.append(newCoord)
+		coords.pop(0)
 
 def game():
 	coords = [(0, 0), (1, 0), (2, 0)]

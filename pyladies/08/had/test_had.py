@@ -15,3 +15,17 @@ def test_move():
 
 	with pytest.raises(ValueError):
 		had.move(souradnice, 'g')
+
+	souradnice = [(0, 0), (1, 0), (2, 0)]
+	with pytest.raises(ValueError):
+		had.move(souradnice, 'n')	# out of bounds
+	with pytest.raises(ValueError):
+		had.move(souradnice, 'w')	# step on tail
+
+	souradnice = [(9, 7), (9, 8), (9, 9)]
+	with pytest.raises(ValueError):
+		had.move(souradnice, 's')	# oob
+	with pytest.raises(ValueError):
+		had.move(souradnice, 'e')	# oob
+	with pytest.raises(ValueError):
+		had.move(souradnice, 'n')	# step on tail
